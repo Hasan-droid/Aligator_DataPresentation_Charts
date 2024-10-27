@@ -46,6 +46,9 @@ const VerticalChart: React.FC<verticalChartPropsTypes> = ({ data }) => {
       name: key,
       data: groupedData[key],
       stack: "a",
+      emphasis: {
+        focus: "series",
+      },
     };
   });
 
