@@ -3,19 +3,7 @@ import { centerPanel, outerBoxBorderStyles, textEllipsisStyle } from "../theme/c
 import ReactEcharts from "echarts-for-react";
 import { formatDate } from "../utils/dateUtils";
 import pieChartOptions from "../chartsConfigs/pieChartConfig";
-
-interface PieProps {
-  data: {
-    startDate: number;
-    endDate: number;
-    data: {
-      source: string;
-      sourceColor: string;
-      [key: string]: number | string;
-    }[];
-  };
-  title: string;
-}
+import { PieProps } from "../types/charts/pieChartTypes";
 
 const PieChart: React.FC<PieProps> = ({ data, title }) => {
   //format startDate
