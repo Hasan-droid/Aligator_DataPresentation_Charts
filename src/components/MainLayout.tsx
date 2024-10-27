@@ -57,7 +57,7 @@ export default function MainLayout() {
               <Box width="113px" height="1px">
                 <Text {...navBarItemsStyle}>Horizontal</Text>
               </Box>
-              <Box width="95px" height="1px">
+              <Box width="95px" height="1px" onClick={() => navigate("/vertical")}>
                 <Text {...navBarItemsStyle}>Vertical</Text>
               </Box>
               <Box width="130px" height="1px">
