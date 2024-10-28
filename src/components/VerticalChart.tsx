@@ -13,29 +13,37 @@ const VerticalChart: React.FC<IVerticalChartProps> = ({ data }) => {
 
   /**
    * Group the data by source
+   *
    * e.g {facebook: [1, 2, 3], twitter: [4, 5, 6]}
    */
-  const groupedData = data.data.reduce(
-    (acc: { [key: string]: number[] }, item: { date: number; source: string; numMentions: number }) => {
-      if (!acc[item.source]) {
-        acc[item.source] = [];
-      }
-      acc[item.source].push(item.numMentions);
-      return acc;
-    },
-    {}
-  );
+  const groupData = (data: { source: string; date: number; numMentions: number }[]) => {
+    return data.reduce(
+      (acc: { [key: string]: number[] }, item: { date: number; source: string; numMentions: number }) => {
+        if (!acc[item.source]) {
+          acc[item.source] = [];
+        }
+        acc[item.source].push(item.numMentions);
+        return acc;
+      },
+      {}
+    );
+  };
 
   /**
    * Get the unique dates
    * e.g ["March 24, 2021", "March 25, 2021"]
    * */
-  const xAxisData = data.data.reduce((acc: string[], item: { date: number }) => {
-    if (!acc.includes(formatDate_MMDDYYYY(item.date))) {
-      acc.push(formatDate_MMDDYYYY(item.date));
-    }
-    return acc;
-  }, []);
+  const extractAxisData = (data: { date: number }[]) => {
+    return data.reduce((acc: string[], item: { date: number }) => {
+      if (!acc.includes(formatDate_MMDDYYYY(item.date))) {
+        acc.push(formatDate_MMDDYYYY(item.date));
+      }
+      return acc;
+    }, []);
+  };
+
+  const groupedData = groupData(data.data);
+  const xAxisData = extractAxisData(data.data);
 
   /**
    * Format the data to be used in the vertical chart
