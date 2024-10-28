@@ -1,15 +1,16 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
-import { centerPanel, outerBoxBorderStyles, textEllipsisStyle } from "../theme/chakra/styles";
-import ReactEcharts from "echarts-for-react";
-import { formatDate_MMDDYYYY } from "../utils/dateUtils";
-import { verticalChartPropsTypes } from "../types/charts/verticalTypes";
+import { formatDate, formatDate_MMDDYYYY } from "../utils/dateUtils";
+import { IVerticalChartProps } from "../types/charts/verticalTypes";
 import verticalChartOptions from "../chartsConfigs/verticalChartConfig";
+import ChartContainer from "./chartContainer";
 
 /**
  * this component is used to display the vertical stacked chart
  * @param data - the data to be used in the vertical chart
  */
-const VerticalChart: React.FC<verticalChartPropsTypes> = ({ data }) => {
+const VerticalChart: React.FC<IVerticalChartProps> = ({ data }) => {
+  const startDate = formatDate(data.startDate);
+  const endDate = formatDate(data.endDate);
+
   /**
    * Group the data by source
    * e.g {facebook: [1, 2, 3], twitter: [4, 5, 6]}
@@ -56,34 +57,14 @@ const VerticalChart: React.FC<verticalChartPropsTypes> = ({ data }) => {
   const option = verticalChartOptions({ groupedData, xAxisData, series });
 
   return (
-    <Box width={"75vw"} height={"75vh"} marginTop={"17vh"} {...centerPanel} {...outerBoxBorderStyles}>
-      <Box
-        display={"flex"}
-        alignItems={"flex-start"}
-        justifyItems={"flex-start"}
-        marginLeft={"-2vw"}
-        marginTop={"-1vh"}
-        width={"100%"}
-      >
-        <Stack
-          display={"flex"}
-          alignItems={"flex-start"}
-          direction={"column"}
-          marginBottom={"1vh"}
-          {...textEllipsisStyle}
-          width={"100%"}
-          spacing={1}
-        >
-          <Text fontSize={"lg"} fontWeight={"bold"} color={"gray.600"}>
-            {"title"}
-          </Text>
-          <Text fontSize={"xs"} color={"gray.500"}>
-            {"startDate"} - {"endDate"}
-          </Text>
-        </Stack>
-      </Box>
-      <ReactEcharts option={option} style={{ width: "inherit", height: "inherit" }} />
-    </Box>
+    <ChartContainer
+      title={"Euro 24 sponsors - Posts over time"}
+      startDate={startDate}
+      endDate={endDate}
+      option={option}
+      width={"75vw"}
+      height={"75vh"}
+    />
   );
 };
 

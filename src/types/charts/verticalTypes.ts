@@ -1,7 +1,7 @@
 /**
  * this interface is used in the configuration options for the vertical chart
  */
-export interface IHorizontalChartConfig {
+export interface IVerticalChartConfig {
   groupedData: { [key: string]: number[] };
   xAxisData: string[];
   series: {
@@ -15,7 +15,7 @@ export interface IHorizontalChartConfig {
 /**
  * props types for the vertical chart
  */
-export type verticalChartPropsTypes = {
+export interface IVerticalChartProps {
   data: {
     startDate: number;
     endDate: number;
@@ -25,4 +25,4 @@ export type verticalChartPropsTypes = {
       numMentions: number;
     }[];
   };
-};
+}

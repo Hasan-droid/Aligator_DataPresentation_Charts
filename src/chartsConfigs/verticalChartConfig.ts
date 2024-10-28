@@ -1,4 +1,4 @@
-import { IHorizontalChartConfig } from "../types/charts/verticalTypes";
+import { IVerticalChartConfig } from "../types/charts/verticalTypes";
 type EChartsOption = echarts.EChartsOption;
 
 /**
@@ -7,7 +7,7 @@ type EChartsOption = echarts.EChartsOption;
  * @param xAxisData - the unique dates,
  * @param series - the data to be used in the vertical chart series
  */
-const config = ({ groupedData, xAxisData, series }: IHorizontalChartConfig) => {
+const config = ({ groupedData, xAxisData, series }: IVerticalChartConfig) => {
   const option: EChartsOption = {
     legend: {
       data: Object.keys(groupedData),
