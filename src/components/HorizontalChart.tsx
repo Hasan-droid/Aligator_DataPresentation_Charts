@@ -1,4 +1,4 @@
-import ChartContainer from "./chartContainer";
+import ChartContainer from "./ChartContainer";
 import { formatDate } from "../utils/dateUtils";
 import horizontalChartOptions from "../chartsConfigs/horizontalChartConfig";
 import { IHorizontalChartProps } from "../types/charts/horizontalChartTypes";

@@ -1,7 +1,7 @@
 import { formatDate, formatDate_MMDDYYYY } from "../utils/dateUtils";
 import { IVerticalChartProps } from "../types/charts/verticalTypes";
 import verticalChartOptions from "../chartsConfigs/verticalChartConfig";
-import ChartContainer from "./chartContainer";
+import ChartContainer from "./ChartContainer";
 
 /**
  * this component is used to display the vertical stacked chart
