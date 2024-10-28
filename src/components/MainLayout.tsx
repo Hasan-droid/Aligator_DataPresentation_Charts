@@ -54,7 +54,7 @@ export default function MainLayout() {
               <Box width="56px" height="45px" onClick={() => handleNavigation("/pie")}>
                 <Text {...navBarItemsStyle}>Pie</Text>
               </Box>
-              <Box width="113px" height="1px">
+              <Box width="113px" height="1px" onClick={() => navigate("/horizontal")}>
                 <Text {...navBarItemsStyle}>Horizontal</Text>
               </Box>
               <Box width="95px" height="1px" onClick={() => navigate("/vertical")}>

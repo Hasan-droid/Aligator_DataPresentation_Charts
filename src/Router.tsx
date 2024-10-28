@@ -3,7 +3,9 @@ import App from "./App";
 import "./styles/index.css";
 import PieChartsGrid from "./components/PieChartsGrid";
 import VerticalChart from "./components/VerticalChart";
+import HorizontalChart from "./components/HorizontalChart";
 import postsOverTimeData from "../src/data/PostsOverTime.json";
+import rankingData from "../src/data/Ranking.json";
 
 const Router = createBrowserRouter([
   {
@@ -18,6 +20,10 @@ const Router = createBrowserRouter([
       {
         path: "/vertical",
         element: <VerticalChart data={postsOverTimeData} />,
+      },
+      {
+        path: "/horizontal",
+        element: <HorizontalChart data={rankingData} />,
       },
     ],
   },
