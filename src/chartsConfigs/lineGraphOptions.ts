@@ -8,6 +8,13 @@ type EChartsOption = echarts.EChartsOption;
  */
 const config = (dates: string[], series: number[]) => {
   const option: EChartsOption = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        // Use axis to trigger tooltip
+        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
+      },
+    },
     xAxis: {
       type: "category",
       data: dates,

@@ -11,6 +11,13 @@ interface IPieDataFormat extends EChartsOption {
  */
 const config = (pieDataFormat: IPieDataFormat[]) => {
   const option: EChartsOption = {
+    tooltip: {
+      trigger: "item",
+      axisPointer: {
+        // Use axis to trigger tooltip
+        type: "shadow", // 'shadow' as default; can also be 'line' or 'shadow'
+      },
+    },
     legend: {
       top: "5%",
       left: "center",
@@ -20,9 +27,9 @@ const config = (pieDataFormat: IPieDataFormat[]) => {
         top: "10%",
         name: "Access From",
         type: "pie",
-        radius: ["30%", "70%"],
+        radius: ["25%", "70%"],
         avoidLabelOverlap: false,
-        label: { position: "inside", formatter: "{d}%", color: "#ededed", fontSize: 12 },
+        label: { position: "inside", formatter: "{d}%", color: "#ededed", fontSize: 10 },
         emphasis: {
           label: {
             show: true,
