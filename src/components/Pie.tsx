@@ -1,9 +1,7 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
-import { centerPanel, outerBoxBorderStyles, textEllipsisStyle } from "../theme/chakra/styles";
-import ReactEcharts from "echarts-for-react";
 import { formatDate } from "../utils/dateUtils";
 import pieChartOptions from "../chartsConfigs/pieChartConfig";
 import { PieProps } from "../types/charts/pieChartTypes";
+import ChartContainer from "./ChartContainer";
 
 const PieChart: React.FC<PieProps> = ({ data, title }) => {
   //format startDate
@@ -24,34 +22,14 @@ const PieChart: React.FC<PieProps> = ({ data, title }) => {
   // get the pie chart options
   const option = pieChartOptions(pieDataFormat);
   return (
-    <Box width={"28vw"} height={"49vh"} {...centerPanel} {...outerBoxBorderStyles}>
-      <Box
-        display={"flex"}
-        alignItems={"flex-start"}
-        justifyItems={"flex-start"}
-        marginLeft={"-2vw"}
-        marginTop={"-1vh"}
-        width={"100%"}
-      >
-        <Stack
-          display={"flex"}
-          alignItems={"flex-start"}
-          direction={"column"}
-          marginBottom={"1vh"}
-          {...textEllipsisStyle}
-          width={"100%"}
-          spacing={1}
-        >
-          <Text fontSize={"lg"} fontWeight={"bold"} color={"gray.600"}>
-            {title}
-          </Text>
-          <Text fontSize={"xs"} color={"gray.500"}>
-            {startDate} - {endDate}
-          </Text>
-        </Stack>
-      </Box>
-      <ReactEcharts option={option} style={{ width: "inherit", height: "inherit" }} />
-    </Box>
+    <ChartContainer
+      title={title}
+      startDate={startDate}
+      endDate={endDate}
+      width={"28vw"}
+      height={"49vh"}
+      option={option}
+    />
   );
 };
 
