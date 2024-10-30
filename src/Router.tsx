@@ -6,6 +6,8 @@ import VerticalChart from "./components/VerticalChart";
 import HorizontalChart from "./components/HorizontalChart";
 import postsOverTimeData from "../src/data/PostsOverTime.json";
 import rankingData from "../src/data/Ranking.json";
+import LineGraph from "./components/LineGraph";
+import EstimatedReachData from "./data/EstimatedReach.json";
 
 const Router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const Router = createBrowserRouter([
       {
         path: "/horizontal",
         element: <HorizontalChart data={rankingData} />,
+      },
+      {
+        path: "/linegraph",
+        element: <LineGraph data={EstimatedReachData} />,
       },
     ],
   },

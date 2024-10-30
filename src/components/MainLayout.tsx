@@ -60,7 +60,7 @@ export default function MainLayout() {
               <Box width="95px" height="1px" onClick={() => navigate("/vertical")}>
                 <Text {...navBarItemsStyle}>Vertical</Text>
               </Box>
-              <Box width="130px" height="1px">
+              <Box width="130px" height="1px" onClick={()=>handleNavigation("/linegraph")}>
                 <Text {...navBarItemsStyle}>Line Graph</Text>
               </Box>
             </Stack>
