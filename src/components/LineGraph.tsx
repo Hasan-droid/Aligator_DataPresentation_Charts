@@ -1,6 +1,6 @@
 import { formatDate, formatDate_MMDDYYYY } from "../utils/dateUtils";
 import ChartContainer from "./ChartContainer";
-import lineChartOptions from "../chartsConfigs/lineGraphOptions";
+import lineChartOptions from "../chartsConfigs/lineGraphConfig";
 import { ILineGraphProps } from "../types/charts/lineGraphTypes";
 
 /**
