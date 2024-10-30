@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+# Data Visualization Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is designed to visualize data using various chart types such as line graphs, bar charts, and pie charts. It leverages libraries like ECharts and React to create interactive and dynamic data visualizations.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [File Structure](#file-structure)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Interactive line graphs, bar charts, and pie charts
+- Dynamic data visualization with ECharts
+- Responsive design with Chakra UI
+- TypeScript for type safety
+- Easy configuration and customization
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+To get started with this project, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/Hasan-droid/Aligator_DataPresentation_Charts
+cd Aligator_DataPresentation_Charts
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To run the project locally, use the following command:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run dev
+```
+
+This will start the development server and open the project in your default web browser.
+
+## File Structure
+
+The project structure is organized as follows:
+data-visualization-project/
+├── public
+├── src/
+│ ├── assets/
+│ │ └── images/
+│ ├── chartsConfigs/
+│ │ ├── horizontalChartConfig.ts //configurations for stacked horizontal chart
+│ │ ├── lineGraphConfig.ts //configurations line graph chart
+│ │ ├── pieChartConfig.ts //configurations for pie chart
+│ │ ├── verticalChartConfig.ts //configurations for vertical stacked chart
+│ ├── components/
+│ │ ├── ChartContainer.tsx //universal container used to display chart in all components
+│ │ ├── HorizontalChart.tsx
+│ │ ├── MainLayout.tsx // the main layout of the app contains nav bar
+│ │ ├── Pie.tsx
+│ │ ├── PieChartsGrid.tsx // displays 3 pie chart each row
+│ │ ├── VerticalChart.tsx
+│ ├── data/ //visualized data in the charts
+│ │ ├── Engagement.json
+│ │ ├── EstimatedReach.json
+│ │ ├── PostsOverTime.json
+│ │ ├── Ranking.json
+│ │ ├── ShareOfVoice.json
+│ ├── styles/
+│ │ │ ├── App.css
+│ │ │ ├── index.css
+│ ├── theme/ // custom theming
+│ │ ├── chakra/ chakra css framework
+│ │ │ ├── customTheme.ts // custom main theme of the app
+│ │ │ ├── styles.ts // reusable bulks of theming properties
+│ ├── types/
+│ │ ├── charts/
+│ │ │ ├── horizontalChartTypes.ts
+│ │ │ ├── lineGraphTypes.ts
+│ │ │ ├── pieChartTypes.ts
+│ │ │ ├── verticalTypes.ts
+│ ├── utils/ //global used functions
+│ │ ├── dateUtils.ts
+│ ├── App.tsx
+│ ├── index.tsx
+│ ├── Router.tsx // routes of the app
+├── package.json
+├── README.md
