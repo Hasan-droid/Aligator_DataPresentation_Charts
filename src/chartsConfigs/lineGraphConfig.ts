@@ -6,7 +6,13 @@ type EChartsOption = echarts.EChartsOption;
  * @param series - Array of series
  * @returns - EChartsOption
  */
-const config = (dates: string[], series: number[]) => {
+const config = (
+  dates: string[],
+  series: {
+    data: (string | number)[];
+    type: "line";
+  }[]
+) => {
   const option: EChartsOption = {
     tooltip: {
       trigger: "axis",
@@ -22,12 +28,7 @@ const config = (dates: string[], series: number[]) => {
     yAxis: {
       type: "value",
     },
-    series: [
-      {
-        data: series,
-        type: "line",
-      },
-    ],
+    series: series,
   };
   return option;
 };

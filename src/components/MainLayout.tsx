@@ -1,8 +1,9 @@
 import { Box, ChakraStyledOptions, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import logOutImage from "../assets/logout_svgrepo.com.png";
-import { textEllipsisStyle } from "../theme/chakra/styles";
+import { centerPanel, outerBoxBorderStyles, textEllipsisStyle } from "../theme/chakra/styles";
 import alligatorIcon from "../assets/alligator.jpeg";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import chartImage from "../assets/1600w-wvx0Grf52AY.webp";
 
 const navBarItemsStyle: ChakraStyledOptions = {
   fontSize: "md",
@@ -22,6 +23,7 @@ const navBarItemsStyle: ChakraStyledOptions = {
  */
 export default function MainLayout() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // this function is used to navigate to the specified path
   const handleNavigation = (path: string) => {
@@ -49,6 +51,7 @@ export default function MainLayout() {
               alt="aligator"
               objectFit="contain" // Ensures the image scales correctly
               onClick={() => handleNavigation("/")}
+              cursor={"pointer"}
             />
             <Stack marginLeft={"20px"} direction={"row"} width={"100%"} spacing={"2vw"}>
               <Box width="56px" height="45px" onClick={() => handleNavigation("/pie")}>
@@ -60,18 +63,36 @@ export default function MainLayout() {
               <Box width="95px" height="1px" onClick={() => navigate("/vertical")}>
                 <Text {...navBarItemsStyle}>Vertical</Text>
               </Box>
-              <Box width="130px" height="1px" onClick={()=>handleNavigation("/linegraph")}>
+              <Box width="130px" height="1px" onClick={() => handleNavigation("/linegraph")}>
                 <Text {...navBarItemsStyle}>Line Graph</Text>
               </Box>
             </Stack>
           </Box>
 
           <Box marginTop={"13px"} marginRight={"9px"}>
-            <Image width={"50px"} height={"50px"} src={logOutImage} alt="back" cursor={"pointer"} />
+            <Image
+              width={"50px"}
+              height={"50px"}
+              src={logOutImage}
+              alt="back"
+              cursor={"pointer"}
+              onClick={() => navigate("/")}
+            />
           </Box>
         </Flex>
       </Box>
       <Box position={"relative"} marginTop={"6vh"}>
+        {location.pathname === "/" && (
+          <Box
+            {...centerPanel}
+            {...outerBoxBorderStyles}
+            marginTop={"12vh"}
+            onClick={() => navigate("/pie")}
+            cursor={"pointer"}
+          >
+            <Image src={chartImage} alt="chart" width={"100%"} height={"68vh"} objectFit={"cover"} />
+          </Box>
+        )}
         <Outlet />
       </Box>
     </>

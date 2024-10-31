@@ -8,6 +8,8 @@ import postsOverTimeData from "../src/data/PostsOverTime.json";
 import rankingData from "../src/data/Ranking.json";
 import LineGraph from "./components/LineGraph";
 import EstimatedReachData from "./data/EstimatedReach.json";
+import ShareOfVoiceData from "./data/ShareOfVoice.json";
+import EngagementData from "./data/Engagement.json";
 
 const Router = createBrowserRouter([
   {
@@ -17,7 +19,6 @@ const Router = createBrowserRouter([
       {
         path: "/pie",
         element: <PieChartsGrid />,
-        index: true,
       },
       {
         path: "/vertical",
@@ -29,7 +30,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/linegraph",
-        element: <LineGraph data={EstimatedReachData} />,
+        element: <LineGraph dataSet1={EstimatedReachData} dataSet2={ShareOfVoiceData} dataSet3={EngagementData} />,
       },
     ],
   },

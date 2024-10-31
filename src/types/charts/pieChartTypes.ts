@@ -1,7 +1,7 @@
 /**
  * Pie chart props
  */
-export interface PieProps {
+export interface IPieProps {
   data: {
     startDate: number;
     endDate: number;

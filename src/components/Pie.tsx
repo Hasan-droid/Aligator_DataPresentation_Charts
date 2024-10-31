@@ -1,9 +1,9 @@
 import { formatDate } from "../utils/dateUtils";
 import pieChartOptions from "../chartsConfigs/pieChartConfig";
-import { PieProps } from "../types/charts/pieChartTypes";
+import { IPieProps } from "../types/charts/pieChartTypes";
 import ChartContainer from "./ChartContainer";
 
-const PieChart: React.FC<PieProps> = ({ data, title }) => {
+const PieChart: React.FC<IPieProps> = ({ data, title }) => {
   //format startDate
   const startDate = formatDate(data.startDate);
 
